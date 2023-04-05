@@ -20,8 +20,13 @@ public class Magazine extends Material {
 
     @Override
     protected ArrayList<ValidationRule> validationRules() {
-//        TODO: Add specific validations
-        return new ArrayList<>();
+        ArrayList<ValidationRule> rules = baseValidationRules();
+
+        rules.add(() -> this.isbn == null || this.isbn.isEmpty() ? "ISBN deve estar presente" : null);
+        rules.add(() -> this.volume == null || this.volume.isEmpty() ? "Volume deve estar presente" : null);
+        rules.add(() -> this.edition == null || this.edition.isEmpty() ? "Edição deve estar presente" : null);
+
+        return rules;
     }
 
     public String getIsbn() {

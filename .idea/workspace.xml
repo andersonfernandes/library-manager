@@ -7,6 +7,13 @@
     <list default="true" id="783a1a4d-6fa1-4e31-b44b-22ba91f7a5ad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/LibraryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/LibraryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/LibraryManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Magazine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Material.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Material.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1680643168306</updated>
       <workItem from="1680643172801" duration="1000000" />
-      <workItem from="1680657273240" duration="6849000" />
+      <workItem from="1680657273240" duration="8081000" />
     </task>
     <servers />
   </component>

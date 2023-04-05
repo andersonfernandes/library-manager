@@ -24,6 +24,7 @@ public abstract class Material extends Record {
         ArrayList<ValidationRule> rules = new ArrayList<>();
 
         rules.add(() -> this.title == null || this.title.isEmpty() ? "Título deve estar presente" : null);
+        rules.add(() -> this.title != null && this.title.length() < 4 ? "Título deve possuir no mínimo 4 caracteres" : null);
         rules.add(() -> this.publisher == null || this.publisher.isEmpty() ? "Editora deve estar presente" : null);
         rules.add(() -> this.year == null ? "Ano deve estar presente" : null);
         rules.add(() -> this.quantity == null ? "Quantidade deve estar presente" : null);

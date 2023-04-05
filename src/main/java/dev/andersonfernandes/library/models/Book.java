@@ -22,8 +22,19 @@ public class Book extends Material {
     protected ArrayList<ValidationRule> validationRules() {
         ArrayList<ValidationRule> rules = baseValidationRules();
 
-        rules.add(() -> this.title.length() < 4 ? "Título deve possuir no mínimo 4 caracteres" : null);
-//        TODO: Add book specific validations
+        rules.add(() -> this.type == null ? "Tipo do livro deve estar presente" : null);
+        rules.add(() -> {
+            boolean condition = this.type != null &&
+                    this.type.equals(BookType.TEXTBOOK) &&
+                    (this.subject == null || this.subject.isEmpty());
+            return condition ? "Disciplina do livro deve estar presente quando seu tipo for didático" : null;
+        });
+        rules.add(() -> {
+            boolean condition = this.type != null &&
+                    this.type.equals(BookType.OTHER) &&
+                    (this.genre == null || this.genre.isEmpty());
+            return condition ? "Gênero do livro deve estar presente quando seu tipo for paradidático" : null;
+        });
 
         return rules;
     }
