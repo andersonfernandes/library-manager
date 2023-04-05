@@ -5,14 +5,15 @@ import dev.andersonfernandes.library.models.utils.ValidationRule;
 import java.util.ArrayList;
 
 public class Book extends Material {
+    public static final String TABLE_NAME = "books";
     private BookType type;
     private String subject;
     private String genre;
 
     public Book() {}
 
-    public Book(String title, String publisher, Integer year, Integer quantity, BookType type, String subject, String genre) {
-        super(title, publisher, year, quantity);
+    public Book(Long id, String title, String publisher, Integer year, Integer quantity, BookType type, String subject, String genre) {
+        super(id, title, publisher, year, quantity);
         this.type = type;
         this.subject = subject;
         this.genre = genre;

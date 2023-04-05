@@ -13,7 +13,8 @@ public abstract class Material extends Record {
 
     public Material() {}
 
-    public Material(String title, String publisher, Integer year, Integer quantity) {
+    public Material(Long id, String title, String publisher, Integer year, Integer quantity) {
+        this.id = id;
         this.title = title;
         this.publisher = publisher;
         this.year = year;
