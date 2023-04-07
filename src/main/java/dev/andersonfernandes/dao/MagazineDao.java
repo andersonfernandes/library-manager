@@ -1,23 +1,34 @@
 package dev.andersonfernandes.dao;
 
 import dev.andersonfernandes.config.Database;
+import dev.andersonfernandes.config.DatabaseQueries;
 import dev.andersonfernandes.dao.utils.Dao;
-import dev.andersonfernandes.models.Book;
-import dev.andersonfernandes.models.Magazine;
+import dev.andersonfernandes.dao.utils.ResultSetMapper;
+import dev.andersonfernandes.models.*;
 
 import java.sql.*;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class MagazineDao implements Dao<Magazine> {
     @Override
     public Optional<Magazine> get(Long id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public List<Magazine> getAll() {
-        return null;
+        ResultSetMapper mapper = (ResultSet rs) -> {
+            return Optional.of(
+                    new Magazine(
+                            rs.getLong("id"),
+                            rs.getString("title"),
+                            rs.getString("publisher"),
+                            rs.getInt("year"),
+                            rs.getInt("quantity"),
+                            rs.getString("isbn"),
+                            rs.getString("volume"),
+                            rs.getString("edition")
+                    )
+            );
+        };
+        return DatabaseQueries.get(Book.TABLE_NAME, id, mapper);
     }
 
     @Override
@@ -62,12 +73,21 @@ public class MagazineDao implements Dao<Magazine> {
     }
 
     @Override
-    public void update(Magazine magazine) {
-
-    }
-
-    @Override
-    public void delete(Magazine magazine) {
-
+    public List<Magazine> findBy(Map<String, String> args) {
+        ResultSetMapper mapper = (ResultSet rs) -> {
+            return Optional.of(
+                    new Magazine(
+                            rs.getLong("id"),
+                            rs.getString("title"),
+                            rs.getString("publisher"),
+                            rs.getInt("year"),
+                            rs.getInt("quantity"),
+                            rs.getString("isbn"),
+                            rs.getString("volume"),
+                            rs.getString("edition")
+                    )
+            );
+        };
+        return DatabaseQueries.findBy(Magazine.TABLE_NAME, args, mapper);
     }
 }

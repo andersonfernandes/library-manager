@@ -6,7 +6,11 @@ import dev.andersonfernandes.dao.utils.ResultSetMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class DatabaseQueries {
     public static final FormattedQuery GET_QUERY = (String tableName, String[] args) -> {
@@ -31,5 +35,32 @@ public class DatabaseQueries {
         }
 
         return Optional.empty();
+    }
+
+    public static List findBy(String tableName, Map<String, String> args, ResultSetMapper mapper) {
+        Database database = Database.getInstance();
+        String sql = String.format(
+                "SELECT * FROM %1$s WHERE %2$s",
+                tableName,
+                args.keySet().stream()
+                        .map(key -> String.format("%1$s='%2$s'", key, args.get(key)))
+                        .collect(Collectors.joining(" AND "))
+        );
+        try (
+                Statement statement = database.getConnection().createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        ) {
+            List list = new ArrayList();
+            while (resultSet.next()) {
+                list.add(mapper.call(resultSet).get());
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            database.closeConnection();
+        }
+
+        return List.of();
     }
 }

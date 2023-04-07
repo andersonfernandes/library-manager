@@ -8,7 +8,7 @@ import dev.andersonfernandes.models.BookType;
 import dev.andersonfernandes.models.Magazine;
 import dev.andersonfernandes.models.Material;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class MaterialsViews extends BaseViews {
     public MaterialsViews(Scanner in) {
@@ -106,10 +106,10 @@ public class MaterialsViews extends BaseViews {
                 System.out.print("Quantidade: ");
                 material.setQuantity(in.hasNextInt() ? in.nextInt() : null);
 
-                Dao dao = (material instanceof Book) ? new BookDao() : new MagazineDao();
+                Dao materialDao = (material instanceof Book) ? new BookDao() : new MagazineDao();
 
                 if (material.isValid()) {
-                    dao.create(material);
+                    materialDao.create(material);
                     System.out.println("Material criado com sucesso!");
                 } else {
                     System.out.println("Não foi possível salvar o material, verifique os seguintes errors:");
@@ -123,5 +123,45 @@ public class MaterialsViews extends BaseViews {
 
     public void getResource() {
         System.out.println("\nConsulta de Material");
+
+        Dao materialDao;
+        int materialTypeSelection;
+        do {
+            materialDao = null;
+            System.out.println("\nQual o tipo de material?");
+            System.out.println("1 - Livro");
+            System.out.println("2 - Revista");
+            System.out.println("3 - Cancelar");
+            System.out.print(">> ");
+
+            materialTypeSelection = in.hasNextInt() ? in.nextInt() : null;
+
+            switch (materialTypeSelection) {
+                case 1 -> materialDao = new BookDao();
+                case 2 -> materialDao = new MagazineDao();
+                case 3 -> {
+                    break;
+                }
+                default -> System.out.println("Opção Inválida");
+            }
+
+            if (materialDao != null) {
+                System.out.print("Qual o título do material? >> ");
+
+                List<Material> materialsFound = materialDao.findBy(Map.ofEntries(
+                        new AbstractMap.SimpleEntry<>("title", in.next())
+                ));
+
+                System.out.println("Materiais encontrados com o título buscado:");
+                materialsFound.forEach(material ->
+                        System.out.println(String.format("#%1$s: %2$s <%3$s, %4$s>",
+                                material.getId(),
+                                material.getTitle(),
+                                material.getPublisher(),
+                                material.getYear()))
+                );
+                break;
+            }
+        } while (materialTypeSelection != 3);
     }
 }

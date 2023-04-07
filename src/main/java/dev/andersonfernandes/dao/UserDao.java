@@ -3,11 +3,13 @@ package dev.andersonfernandes.dao;
 import dev.andersonfernandes.config.DatabaseQueries;
 import dev.andersonfernandes.dao.utils.Dao;
 import dev.andersonfernandes.dao.utils.ResultSetMapper;
+import dev.andersonfernandes.models.Magazine;
 import dev.andersonfernandes.models.User;
 import dev.andersonfernandes.models.UserType;
 
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class UserDao implements Dao<User> {
@@ -30,22 +32,12 @@ public class UserDao implements Dao<User> {
     }
 
     @Override
-    public List<User> getAll() {
-        return null;
-    }
-
-    @Override
     public Optional<Long> create(User user) {
         return Optional.empty();
     }
 
     @Override
-    public void update(User user) {
-
-    }
-
-    @Override
-    public void delete(User user) {
-
+    public List<User> findBy(Map<String, String> args) {
+        return null;
     }
 }

@@ -6,9 +6,11 @@ import dev.andersonfernandes.dao.utils.Dao;
 import dev.andersonfernandes.dao.utils.ResultSetMapper;
 import dev.andersonfernandes.models.Book;
 import dev.andersonfernandes.models.BookType;
+import dev.andersonfernandes.models.Magazine;
 
 import java.sql.*;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class BookDao implements Dao<Book> {
@@ -29,11 +31,6 @@ public class BookDao implements Dao<Book> {
             );
         };
         return DatabaseQueries.get(Book.TABLE_NAME, id, mapper);
-    }
-
-    @Override
-    public List<Book> getAll() {
-        return null;
     }
 
     @Override
@@ -78,12 +75,21 @@ public class BookDao implements Dao<Book> {
     }
 
     @Override
-    public void update(Book book) {
-
-    }
-
-    @Override
-    public void delete(Book book) {
-
+    public List<Book> findBy(Map<String, String> args) {
+        ResultSetMapper mapper = (ResultSet rs) -> {
+            return Optional.of(
+                    new Book(
+                            rs.getLong("id"),
+                            rs.getString("title"),
+                            rs.getString("publisher"),
+                            rs.getInt("year"),
+                            rs.getInt("quantity"),
+                            BookType.valueOf(rs.getString("type")),
+                            rs.getString("subject"),
+                            rs.getString("genre")
+                    )
+            );
+        };
+        return DatabaseQueries.findBy(Book.TABLE_NAME, args, mapper);
     }
 }
