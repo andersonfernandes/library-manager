@@ -4,25 +4,14 @@ import dev.andersonfernandes.config.Database;
 import dev.andersonfernandes.config.DatabaseQueries;
 import dev.andersonfernandes.dao.utils.Dao;
 import dev.andersonfernandes.dao.utils.ResultSetMapper;
-import dev.andersonfernandes.library.models.Book;
-import dev.andersonfernandes.library.models.BookType;
+import dev.andersonfernandes.models.Book;
+import dev.andersonfernandes.models.BookType;
 
 import java.sql.*;
 import java.util.List;
 import java.util.Optional;
 
 public class BookDao implements Dao<Book> {
-    private static BookDao instance;
-
-    private BookDao() { }
-
-    public static BookDao getInstance() {
-        if (instance == null)
-            instance = new BookDao();
-
-        return instance;
-    }
-
     @Override
     public Optional<Book> get(Long id) {
         ResultSetMapper mapper = (ResultSet rs) -> {
@@ -39,7 +28,7 @@ public class BookDao implements Dao<Book> {
                     )
             );
         };
-        return DatabaseQueries.get(id, mapper);
+        return DatabaseQueries.get(Book.TABLE_NAME, id, mapper);
     }
 
     @Override
@@ -48,7 +37,58 @@ public class BookDao implements Dao<Book> {
     }
 
     @Override
-    public void save(Book book) {
+    public Optional<Long> create(Book book) {
+        Connection connection = Database.getInstance().getConnection();
+        String sql = String.format(
+                "INSERT INTO %1$s (title, publisher, year, quantity, type, subject, genre)" +
+                        "VALUES ('%2$s', '%3$s', %4$s, %5$s, '%6$s', '%7$s', '%8$s')",
+                Book.TABLE_NAME,
+                book.getTitle(),
+                book.getPublisher(),
+                book.getYear(),
+                book.getQuantity(),
+                book.getType(),
+                book.getSubject(),
+                book.getGenre()
+        );
+
+        try (
+                PreparedStatement statement = connection.prepareStatement(
+                        String.format(
+                                sql,
+                                Book.TABLE_NAME,
+                                book.getTitle(),
+                                book.getPublisher(),
+                                book.getYear(),
+                                book.getQuantity(),
+                                book.getType(),
+                                book.getSubject(),
+                                book.getGenre()
+                        ),
+                        Statement.RETURN_GENERATED_KEYS
+                )
+        ) {
+            statement.execute();
+
+            try (ResultSet rs = statement.getGeneratedKeys()) {
+                if (rs.next()) {
+                    Long createdId = rs.getLong(1);
+                    return Optional.of(createdId);
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return Optional.empty();
+    }
+
+    @Override
+    public void update(Book book) {
 
     }
 
