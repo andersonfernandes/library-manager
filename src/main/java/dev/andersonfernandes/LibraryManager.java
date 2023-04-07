@@ -1,28 +1,34 @@
 package dev.andersonfernandes;
 
-import dev.andersonfernandes.config.Database;
-import dev.andersonfernandes.dao.BookDao;
-import dev.andersonfernandes.library.models.Book;
-import dev.andersonfernandes.library.models.BookType;
+import dev.andersonfernandes.views.MaterialsViews;
+import dev.andersonfernandes.views.RentalsViews;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Optional;
+import java.util.Scanner;
 
 public class LibraryManager {
-    public static void main(String[] args) throws SQLException {
-        System.out.println("Initializing System");
+    public static void main(String[] args) {
+        System.out.println("Inicializando Gerenciador de Biblioteca");
 
-//        Book book = new Book();
-//        book.setTitle("abcd");
-//        book.setPublisher("ab");
-//        book.setYear(2023);
-//        book.setQuantity(1);
-//        book.setType(BookType.OTHER);
-//        System.out.println(book.isValid());
-//        book.getErrors().forEach(e -> System.out.println("E: " + e));
+        Scanner in = new Scanner(System.in);
+        MaterialsViews materialsViews = new MaterialsViews(in);
+        RentalsViews rentalsViews = new RentalsViews(in);
 
-        Optional<Book> book = BookDao.getInstance().get(7L);
-        System.out.println(book.get().getType());
+        int selection;
+
+        do {
+            System.out.println("\nSelecione uma das opções a seguir: ");
+            System.out.println("1 - Materiais");
+            System.out.println("2 - Locações");
+            System.out.println("3 - Sair");
+            System.out.print(">> ");
+
+            selection = in.nextInt();
+
+            switch (selection) {
+                case 1 -> materialsViews.menu();
+                case 2 -> rentalsViews.menu();
+                case 3 -> System.out.println("Encerrando aplicação ...");
+            }
+        } while (selection != 3);
     }
 }

@@ -7,15 +7,13 @@
     <list default="true" id="783a1a4d-6fa1-4e31-b44b-22ba91f7a5ad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/LibraryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/config/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/config/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Magazine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/library/models/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/config/DatabaseQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/config/DatabaseQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/BookDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/utils/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/utils/Dao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/LibraryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/LibraryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/config/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/config/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Magazine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Material.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/library/models/Material.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/config/DatabaseQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/config/DatabaseQueries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/BookDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/BookDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/utils/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/utils/Dao.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -84,7 +82,10 @@
       <workItem from="1680643172801" duration="1000000" />
       <workItem from="1680657273240" duration="9220000" />
       <workItem from="1680701620701" duration="795000" />
-      <workItem from="1680703984817" duration="6804000" />
+      <workItem from="1680703984817" duration="6963000" />
+      <workItem from="1680717169332" duration="2376000" />
+      <workItem from="1680747998174" duration="3485000" />
+      <workItem from="1680819812923" duration="5211000" />
     </task>
     <servers />
   </component>
