@@ -10,6 +10,7 @@ public class LibraryManager {
         System.out.println("Inicializando Gerenciador de Biblioteca");
 
         Scanner in = new Scanner(System.in);
+        in.useDelimiter("\n");
         MaterialsViews materialsViews = new MaterialsViews(in);
         RentalsViews rentalsViews = new RentalsViews(in);
 
@@ -28,6 +29,7 @@ public class LibraryManager {
                 case 1 -> materialsViews.menu();
                 case 2 -> rentalsViews.menu();
                 case 3 -> System.out.println("Encerrando aplicação ...");
+                default -> System.out.println("Opção Inválida");
             }
         } while (selection != 3);
     }

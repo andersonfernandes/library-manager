@@ -23,6 +23,8 @@ public class RentalsViews extends BaseViews {
             switch (selection) {
                 case 1 -> this.newResource();
                 case 2 -> this.getResource();
+                case 3 -> System.out.println("Cancelando Ação");
+                default -> System.out.println("Opção Inválida");
             }
         } while (selection != 3);
     }

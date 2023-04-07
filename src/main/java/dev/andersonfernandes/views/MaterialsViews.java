@@ -1,5 +1,11 @@
 package dev.andersonfernandes.views;
 
+import dev.andersonfernandes.dao.BookDao;
+import dev.andersonfernandes.models.Book;
+import dev.andersonfernandes.models.BookType;
+import dev.andersonfernandes.models.Magazine;
+import dev.andersonfernandes.models.Material;
+
 import java.util.Scanner;
 
 public class MaterialsViews extends BaseViews {
@@ -23,12 +29,98 @@ public class MaterialsViews extends BaseViews {
             switch (selection) {
                 case 1 -> this.newResource();
                 case 2 -> this.getResource();
+                case 3 -> System.out.println("Cancelando Ação");
+                default -> System.out.println("Opção Inválida");
             }
         } while (selection != 3);
     }
 
     public void newResource() {
         System.out.println("\nCadastro de Material");
+
+        Material material;
+        int materialTypeSelection;
+        do {
+            material = null;
+            System.out.println("\nEscolha o tipo de material:");
+            System.out.println("1 - Livro");
+            System.out.println("2 - Revista");
+            System.out.println("3 - Cancelar");
+            System.out.print(">> ");
+
+            materialTypeSelection = in.hasNextInt() ? in.nextInt() : null;
+
+            switch (materialTypeSelection) {
+                case 1 -> material = new Book();
+                case 2 -> material = new Magazine();
+                case 3 -> {
+                    break;
+                }
+                default -> System.out.println("Opção Inválida");
+            }
+
+            if (material != null) {
+                System.out.print("Título: ");
+                material.setTitle(in.next());
+
+                System.out.print("Editora: ");
+                material.setPublisher(in.next());
+
+                System.out.print("Ano: ");
+                material.setYear(in.hasNextInt() ? in.nextInt() : null);
+
+                if (material instanceof Book) {
+                    Integer bookTypeSelection = null;
+                    do {
+                        System.out.println("Selecione o tipo de livro:");
+                        System.out.println("1 - Didático");
+                        System.out.println("2 - Paradidático");
+                        System.out.print(">> ");
+
+                        bookTypeSelection = in.nextInt();
+
+                        switch (bookTypeSelection) {
+                            case 1 -> ((Book) material).setType(BookType.TEXTBOOK);
+                            case 2 -> ((Book) material).setType(BookType.OTHER);
+                        }
+                    } while (bookTypeSelection > 2 || bookTypeSelection < 1);
+
+                    if (((Book) material).getType().equals(BookType.TEXTBOOK)) {
+                        System.out.print("Disciplina do livro: ");
+                        ((Book) material).setSubject(in.next());
+                    } else {
+                        System.out.print("Gênero do livro: ");
+                        ((Book) material).setGenre(in.next());
+                    }
+                } else {
+                    System.out.print("ISBN: ");
+                    ((Magazine) material).setIsbn(in.next());
+                    System.out.print("Volume: ");
+                    ((Magazine) material).setVolume(in.next());
+                    System.out.print("Edição: ");
+                    ((Magazine) material).setEdition(in.next());
+                }
+
+                System.out.print("Quantidade: ");
+                material.setQuantity(in.hasNextInt() ? in.nextInt() : null);
+
+                if (material.isValid()) {
+                    if (Book.class.equals(material.getClass())) {
+                        BookDao bookDao = new BookDao();
+                        bookDao.create((Book) material);
+                        System.out.println("Book Created!");
+                        break;
+                    } else if (Magazine.class.equals(material.getClass())) {
+                        System.out.println("Mags");
+                    }
+                } else {
+                    System.out.println("Não foi possível salvar o material, verifique os seguintes errors:");
+                    material.getErrors().forEach(error -> {
+                        System.out.println("- " + error);
+                    });
+                }
+            }
+        } while (materialTypeSelection != 3);
     }
 
     public void getResource() {
