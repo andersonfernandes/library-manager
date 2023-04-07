@@ -1,10 +1,15 @@
 package dev.andersonfernandes.views;
 
+import dev.andersonfernandes.models.Material;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class RentalsViews extends BaseViews {
-    public RentalsViews(Scanner in) {
+    private final List<Material> rentals;
+    public RentalsViews(Scanner in, List<Material> rentals) {
         super(in);
+        this.rentals = rentals;
     }
 
     @Override
@@ -31,7 +36,6 @@ public class RentalsViews extends BaseViews {
 
     @Override
     protected void newResource() {
-
     }
 
     @Override

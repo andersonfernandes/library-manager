@@ -37,6 +37,7 @@ public class MaterialsViews extends BaseViews {
         } while (selection != 3);
     }
 
+    @Override
     public void newResource() {
         System.out.println("\nCadastro de Material");
 
@@ -121,6 +122,7 @@ public class MaterialsViews extends BaseViews {
         } while (materialTypeSelection != 3);
     }
 
+    @Override
     public void getResource() {
         System.out.println("\nConsulta de Material");
 
