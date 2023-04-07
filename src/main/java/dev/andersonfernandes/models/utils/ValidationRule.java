@@ -1,4 +1,4 @@
-package dev.andersonfernandes.library.models.utils;
+package dev.andersonfernandes.models.utils;
 
 public interface ValidationRule {
     String call();

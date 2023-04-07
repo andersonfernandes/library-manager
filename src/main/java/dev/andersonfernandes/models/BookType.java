@@ -1,4 +1,4 @@
-package dev.andersonfernandes.library.models;
+package dev.andersonfernandes.models;
 
 public enum BookType {
     TEXTBOOK,

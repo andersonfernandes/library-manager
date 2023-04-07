@@ -1,7 +1,7 @@
-package dev.andersonfernandes.library.models;
+package dev.andersonfernandes.models;
 
-import dev.andersonfernandes.library.models.utils.Record;
-import dev.andersonfernandes.library.models.utils.ValidationRule;
+import dev.andersonfernandes.models.utils.Record;
+import dev.andersonfernandes.models.utils.ValidationRule;
 
 import java.util.ArrayList;
 
