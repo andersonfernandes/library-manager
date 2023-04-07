@@ -1,6 +1,8 @@
 package dev.andersonfernandes.views;
 
 import dev.andersonfernandes.dao.BookDao;
+import dev.andersonfernandes.dao.MagazineDao;
+import dev.andersonfernandes.dao.utils.Dao;
 import dev.andersonfernandes.models.Book;
 import dev.andersonfernandes.models.BookType;
 import dev.andersonfernandes.models.Magazine;
@@ -104,15 +106,11 @@ public class MaterialsViews extends BaseViews {
                 System.out.print("Quantidade: ");
                 material.setQuantity(in.hasNextInt() ? in.nextInt() : null);
 
+                Dao dao = (material instanceof Book) ? new BookDao() : new MagazineDao();
+
                 if (material.isValid()) {
-                    if (Book.class.equals(material.getClass())) {
-                        BookDao bookDao = new BookDao();
-                        bookDao.create((Book) material);
-                        System.out.println("Book Created!");
-                        break;
-                    } else if (Magazine.class.equals(material.getClass())) {
-                        System.out.println("Mags");
-                    }
+                    dao.create(material);
+                    System.out.println("Material criado com sucesso!");
                 } else {
                     System.out.println("Não foi possível salvar o material, verifique os seguintes errors:");
                     material.getErrors().forEach(error -> {

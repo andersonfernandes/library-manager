@@ -5,6 +5,7 @@ import dev.andersonfernandes.models.utils.ValidationRule;
 import java.util.ArrayList;
 
 public class Magazine extends Material {
+    public static final String TABLE_NAME = "magazines";
     private String isbn;
     private String volume;
     private String edition;

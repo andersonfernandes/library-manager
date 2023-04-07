@@ -39,18 +39,8 @@ public class BookDao implements Dao<Book> {
     @Override
     public Optional<Long> create(Book book) {
         Connection connection = Database.getInstance().getConnection();
-        String sql = String.format(
-                "INSERT INTO %1$s (title, publisher, year, quantity, type, subject, genre)" +
-                        "VALUES ('%2$s', '%3$s', %4$s, %5$s, '%6$s', '%7$s', '%8$s')",
-                Book.TABLE_NAME,
-                book.getTitle(),
-                book.getPublisher(),
-                book.getYear(),
-                book.getQuantity(),
-                book.getType(),
-                book.getSubject(),
-                book.getGenre()
-        );
+        String sql = "INSERT INTO %1$s (title, publisher, year, quantity, type, subject, genre)" +
+                        "VALUES ('%2$s', '%3$s', %4$s, %5$s, '%6$s', '%7$s', '%8$s')";
 
         try (
                 PreparedStatement statement = connection.prepareStatement(
