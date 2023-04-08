@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="783a1a4d-6fa1-4e31-b44b-22ba91f7a5ad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/UsersViews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/UsersViews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/UsersViews.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/UsersViews.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/DatabaseQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/DatabaseQueries.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +82,7 @@
       <workItem from="1680895074220" duration="973000" />
       <workItem from="1680898246823" duration="1327000" />
       <workItem from="1680966072575" duration="44000" />
-      <workItem from="1680966129609" duration="10673000" />
+      <workItem from="1680966129609" duration="10801000" />
     </task>
     <servers />
   </component>

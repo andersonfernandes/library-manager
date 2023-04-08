@@ -1,7 +1,6 @@
 package dev.andersonfernandes.dao;
 
 import dev.andersonfernandes.config.Database;
-import dev.andersonfernandes.dao.utils.FormattedQuery;
 import dev.andersonfernandes.dao.utils.ResultSetMapper;
 
 import java.sql.ResultSet;
@@ -14,10 +13,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class DatabaseQueries {
-    public static final FormattedQuery GET_QUERY = (String tableName, String[] args) -> {
-        return String.format("SELECT * FROM %1$s WHERE id = %2$s", tableName, args[0]);
-    };
-
     public static Optional get(String tableName, Long id, ResultSetMapper mapper) {
         Database database = Database.getInstance();
         try (
@@ -25,7 +20,9 @@ public class DatabaseQueries {
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_READ_ONLY
                 );
-                ResultSet resultSet = statement.executeQuery(GET_QUERY.build(tableName, new String[]{id.toString()}));
+                ResultSet resultSet = statement.executeQuery(
+                        String.format("SELECT * FROM %1$s WHERE id = %2$s", tableName, id.toString())
+                );
         ) {
             if (resultSet.first())
                 return mapper.call(resultSet);
