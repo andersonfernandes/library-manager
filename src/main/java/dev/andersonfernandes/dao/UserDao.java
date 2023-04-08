@@ -18,20 +18,7 @@ import java.util.stream.Collectors;
 public class UserDao implements Dao<User> {
     @Override
     public Optional<User> get(Long id) {
-        ResultSetMapper mapper = (ResultSet rs) -> {
-            return Optional.of(
-                    new User(
-                            rs.getLong("id"),
-                            rs.getString("name"),
-                            rs.getString("address"),
-                            rs.getString("email"),
-                            UserType.valueOf(rs.getString("type")),
-                            rs.getString("registration"),
-                            rs.getString("subjects").split(",")
-                    )
-            );
-        };
-        return DatabaseQueries.get(User.TABLE_NAME, id, mapper);
+        return DatabaseQueries.get(User.TABLE_NAME, id, getResultSetMapper());
     }
 
     @Override
@@ -76,6 +63,24 @@ public class UserDao implements Dao<User> {
 
     @Override
     public List<User> findBy(Map<String, String> args, Map<String, String> ilikeArgs) {
-        return null;
+        return DatabaseQueries.findBy(User.TABLE_NAME, args, ilikeArgs, getResultSetMapper());
+    }
+
+    private ResultSetMapper getResultSetMapper() {
+        ResultSetMapper mapper = (ResultSet rs) -> {
+            return Optional.of(
+                    new User(
+                            rs.getLong("id"),
+                            rs.getString("name"),
+                            rs.getString("address"),
+                            rs.getString("email"),
+                            UserType.valueOf(rs.getString("type")),
+                            rs.getString("registration"),
+                            rs.getString("subjects").split(",")
+                    )
+            );
+        };
+
+        return mapper;
     }
 }

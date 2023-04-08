@@ -1,9 +1,13 @@
 package dev.andersonfernandes.views;
 
+import dev.andersonfernandes.dao.MaterialDao;
 import dev.andersonfernandes.dao.UserDao;
 import dev.andersonfernandes.dao.utils.Dao;
 import dev.andersonfernandes.models.*;
 
+import java.util.AbstractMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class UsersViews extends BaseViews {
@@ -92,6 +96,27 @@ public class UsersViews extends BaseViews {
 
     @Override
     protected void getResource() {
+        System.out.println("\nConsulta de Usuário");
 
+        Dao<User> userDao = new UserDao();
+
+        System.out.print("Qual o nome do Usuário? >> ");
+
+        List<User> usersFound = userDao.findBy(
+                Map.of(),
+                Map.ofEntries(new AbstractMap.SimpleEntry<>("name", in.next()))
+        );
+
+        if (usersFound.isEmpty()) {
+            System.out.println("Não foram encontrados usuários com o nome buscado!");
+        } else {
+            System.out.println("Usuários encontrados com o nome buscado:");
+            usersFound.forEach(user ->
+                    System.out.printf("%1$s <%2$s>%n",
+                            user.getName(),
+                            user.getEmail()
+                    )
+            );
+        }
     }
 }
