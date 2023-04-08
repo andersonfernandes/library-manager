@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class User extends Record {
     public static final String TABLE_NAME = "users";
+
     private String name;
     private String address;
     private String email;

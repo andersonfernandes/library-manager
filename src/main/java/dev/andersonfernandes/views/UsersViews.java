@@ -84,6 +84,7 @@ public class UsersViews extends BaseViews {
                 if (user.isValid()) {
                     userDao.create(user);
                     System.out.println("Usuário criado com sucesso!");
+                    return;
                 } else {
                     System.out.println("Não foi possível salvar o usuário, verifique os seguintes errors:");
                     user.getErrors().forEach(error -> {

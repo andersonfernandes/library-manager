@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public abstract class Material extends Record {
     public static final String TABLE_NAME = "materials";
+
     protected String title;
     protected String publisher;
     protected Integer year;
@@ -71,6 +72,13 @@ public abstract class Material extends Record {
 
     public MaterialType getMaterialType() {
         return materialType;
+    }
+
+    public String getMaterialTypeLabel() {
+        return switch (materialType) {
+            case BOOK -> "Livro";
+            case MAGAZINE -> "Revista";
+        };
     }
 
     public void setMaterialType(MaterialType materialType) {

@@ -36,8 +36,6 @@ public class MaterialDao implements Dao<Material> {
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
-
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

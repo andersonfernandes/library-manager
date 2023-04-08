@@ -29,6 +29,10 @@ public abstract class Record {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public List<String> getErrors() {
         return errors == null ? new ArrayList<>() : errors;
     }

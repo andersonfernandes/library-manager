@@ -136,18 +136,11 @@ public class MaterialsViews extends BaseViews {
             System.out.println("Materiais encontrados com o título buscado:");
             materialsFound.forEach(material ->
                     System.out.printf("%1$s: %2$s <%3$s, %4$s>%n",
-                            getMaterialTypeLabel(material.getMaterialType()),
+                            material.getMaterialTypeLabel(),
                             material.getTitle(),
                             material.getPublisher(),
                             material.getYear())
             );
         }
-    }
-
-    private String getMaterialTypeLabel(MaterialType materialType) {
-        return switch (materialType) {
-            case BOOK -> "Livro";
-            case MAGAZINE -> "Revista";
-        };
     }
 }

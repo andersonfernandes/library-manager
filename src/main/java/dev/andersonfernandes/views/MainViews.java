@@ -1,25 +1,18 @@
 package dev.andersonfernandes.views;
 
-import dev.andersonfernandes.models.Material;
-import dev.andersonfernandes.models.Rental;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class MainViews extends BaseViews {
     private MaterialsViews materialsViews;
     private RentalsViews rentalsViews;
     private UsersViews usersViews;
-    private List<Rental> rentals;
 
     public MainViews(Scanner in) {
         super(in);
 
-        this.rentals = new ArrayList<>();
         this.materialsViews = new MaterialsViews(in);
         this.usersViews = new UsersViews(in);
-        this.rentalsViews = new RentalsViews(in, rentals);
+        this.rentalsViews = new RentalsViews(in);
     }
 
     @Override

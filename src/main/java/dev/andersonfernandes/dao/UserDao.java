@@ -52,8 +52,6 @@ public class UserDao implements Dao<User> {
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
-
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

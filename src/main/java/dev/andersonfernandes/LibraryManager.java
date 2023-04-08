@@ -1,13 +1,10 @@
 package dev.andersonfernandes;
 
 import dev.andersonfernandes.config.Database;
-import dev.andersonfernandes.dao.MaterialDao;
-import dev.andersonfernandes.models.Material;
 import dev.andersonfernandes.views.MainViews;
 
-import javax.xml.crypto.Data;
 import java.sql.SQLException;
-import java.util.Optional;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class LibraryManager {
