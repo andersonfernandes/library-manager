@@ -14,6 +14,8 @@ public class User extends Record {
     private String[] subjects;
     private UserType type;
 
+    public User() {}
+
     public User(Long id, String name, String address, String email, UserType type, String registration, String[] subjects) {
         this.id = id;
         this.name = name;
@@ -81,7 +83,7 @@ public class User extends Record {
     }
 
     public String[] getSubjects() {
-        return subjects;
+        return subjects == null ? new String[0] : subjects;
     }
 
     public void setSubjects(String[] subjects) {

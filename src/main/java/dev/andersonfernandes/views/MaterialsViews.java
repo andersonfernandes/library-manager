@@ -4,6 +4,7 @@ import dev.andersonfernandes.dao.MaterialDao;
 import dev.andersonfernandes.dao.utils.Dao;
 import dev.andersonfernandes.models.*;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class MaterialsViews extends BaseViews {
@@ -47,14 +48,12 @@ public class MaterialsViews extends BaseViews {
             System.out.println("3 - Cancelar");
             System.out.print(">> ");
 
-            materialTypeSelection = in.hasNextInt() ? in.nextInt() : null;
+            materialTypeSelection = in.hasNextInt() ? in.nextInt() : -1;
 
             switch (materialTypeSelection) {
                 case 1 -> material = new Book();
                 case 2 -> material = new Magazine();
-                case 3 -> {
-                    break;
-                }
+                case 3 -> System.out.println();
                 default -> System.out.println("Opção Inválida");
             }
 

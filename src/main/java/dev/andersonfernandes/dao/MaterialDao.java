@@ -42,7 +42,8 @@ public class MaterialDao implements Dao<Material> {
             e.printStackTrace();
         }
 
-        return Optional.empty();    }
+        return Optional.empty();
+    }
 
     @Override
     public List<Material> findBy(Map<String, String> args, Map<String, String> ilikeArgs) {
