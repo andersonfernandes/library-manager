@@ -6,29 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="783a1a4d-6fa1-4e31-b44b-22ba91f7a5ad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/LibraryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/MaterialDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/MaterialDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Material.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Rental.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/utils/Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/utils/Record.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/MainViews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/MainViews.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/MaterialsViews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/MaterialsViews.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/RentalsViews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/RentalsViews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/UsersViews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/UsersViews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/LibraryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/LibraryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/MaterialDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/MaterialDao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/MaterialDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/MaterialDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/UserDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/models/Material.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/models/Material.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/models/Rental.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/models/Rental.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/models/utils/Record.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/models/utils/Record.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/MainViews.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/MainViews.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/MaterialsViews$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/MaterialsViews.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/MaterialsViews.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/RentalsViews.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/RentalsViews.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/UsersViews.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/UsersViews.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +87,7 @@
       <workItem from="1680895074220" duration="973000" />
       <workItem from="1680898246823" duration="1327000" />
       <workItem from="1680966072575" duration="44000" />
-      <workItem from="1680966129609" duration="18755000" />
+      <workItem from="1680966129609" duration="19131000" />
     </task>
     <servers />
   </component>

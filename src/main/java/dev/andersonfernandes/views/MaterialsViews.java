@@ -134,13 +134,7 @@ public class MaterialsViews extends BaseViews {
             System.out.println("Não foram encontrados materiais com o título buscado!");
         } else {
             System.out.println("Materiais encontrados com o título buscado:");
-            materialsFound.forEach(material ->
-                    System.out.printf("%1$s: %2$s <%3$s, %4$s>%n",
-                            material.getMaterialTypeLabel(),
-                            material.getTitle(),
-                            material.getPublisher(),
-                            material.getYear())
-            );
+            materialsFound.forEach(material -> System.out.println(material.toString()));
         }
     }
 }

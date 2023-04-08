@@ -79,6 +79,8 @@ public class RentalsViews extends BaseViews {
             do {
                 System.out.println("\nLocação em progresso");
                 System.out.printf("Usuário: %1$s%n", rental.getUser().getName());
+                System.out.println("Materiais:");
+                rental.getMaterials().forEach(material -> System.out.printf("- %1$s%n", material.toString()));
 
                 System.out.println("\nSelecione uma das ações a seguir: ");
                 System.out.println("1 - Adicionar Material");
@@ -104,12 +106,10 @@ public class RentalsViews extends BaseViews {
                             System.out.println("Materiais encontrados com o título buscado:");
                             IntStream.range(0, usersFound.size()).forEach(index -> {
                                 Material material = materialsFound.get(index);
-                                System.out.printf("%1$s %2$s: %3$s <%4$s, %5$s>%n",
+                                System.out.printf("%1$s %2$s%n",
                                         index,
-                                        material.getMaterialTypeLabel(),
-                                        material.getTitle(),
-                                        material.getPublisher(),
-                                        material.getYear());
+                                        material.toString()
+                                );
                             });
                             System.out.print("Qual o material deseja adicionar >> ");
                             int selectedMaterial = in.nextInt();

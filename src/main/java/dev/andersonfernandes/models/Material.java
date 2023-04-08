@@ -84,4 +84,9 @@ public abstract class Material extends Record {
     public void setMaterialType(MaterialType materialType) {
         this.materialType = materialType;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%1$s: %2$s <%3$s, %4$s>", getMaterialTypeLabel(), title, publisher, year);
+    }
 }
