@@ -76,7 +76,62 @@ ALTER TABLE public.materials ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
     NO MINVALUE
     NO MAXVALUE
     CACHE 1
+    );
+
+
+--
+-- Name: rental_materials; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.rental_materials (
+                                         id bigint NOT NULL,
+                                         rental_id bigint NOT NULL,
+                                         material_id bigint NOT NULL
 );
+
+
+ALTER TABLE public.rental_materials OWNER TO postgres;
+
+--
+-- Name: rental_materials_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public.rental_materials ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.rental_materials_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+    );
+
+
+--
+-- Name: rentals; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.rentals (
+                                id bigint NOT NULL,
+                                user_id bigint NOT NULL,
+                                return_at date,
+                                status character varying
+);
+
+
+ALTER TABLE public.rentals OWNER TO postgres;
+
+--
+-- Name: rentals_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public.rentals ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.rentals_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+    );
 
 
 --
@@ -107,33 +162,7 @@ ALTER TABLE public.users ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
     NO MINVALUE
     NO MAXVALUE
     CACHE 1
-);
-
-
---
--- Data for Name: materials; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
-
---
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
-
---
--- Name: materials_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.materials_id_seq', 1, true);
-
-
---
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.users_id_seq', 1, false);
+    );
 
 
 --
@@ -145,11 +174,51 @@ ALTER TABLE ONLY public.materials
 
 
 --
+-- Name: rental_materials rental_materials_id_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.rental_materials
+    ADD CONSTRAINT rental_materials_id_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rentals rentals_id_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.rentals
+    ADD CONSTRAINT rentals_id_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: users users_id_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.users
     ADD CONSTRAINT users_id_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rental_materials material_id_on_rental_materials_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.rental_materials
+    ADD CONSTRAINT material_id_on_rental_materials_fkey FOREIGN KEY (material_id) REFERENCES public.materials(id);
+
+
+--
+-- Name: rental_materials rental_id_on_rental_materials_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.rental_materials
+    ADD CONSTRAINT rental_id_on_rental_materials_fkey FOREIGN KEY (rental_id) REFERENCES public.rentals(id);
+
+
+--
+-- Name: rentals user_id_on_rentals_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.rentals
+    ADD CONSTRAINT user_id_on_rentals_fkey FOREIGN KEY (user_id) REFERENCES public.users(id);
 
 
 --
