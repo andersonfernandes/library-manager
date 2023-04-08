@@ -6,19 +6,22 @@ import dev.andersonfernandes.models.utils.ValidationRule;
 import java.util.ArrayList;
 
 public abstract class Material extends Record {
+    public static final String TABLE_NAME = "materials";
     protected String title;
     protected String publisher;
     protected Integer year;
     protected Integer quantity;
+    protected MaterialType materialType;
 
     public Material() {}
 
-    public Material(Long id, String title, String publisher, Integer year, Integer quantity) {
+    public Material(Long id, String title, String publisher, Integer year, Integer quantity, MaterialType materialType) {
         this.id = id;
         this.title = title;
         this.publisher = publisher;
         this.year = year;
         this.quantity = quantity;
+        this.materialType = materialType;
     }
 
     protected ArrayList<ValidationRule> baseValidationRules() {
@@ -64,5 +67,13 @@ public abstract class Material extends Record {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public MaterialType getMaterialType() {
+        return materialType;
+    }
+
+    public void setMaterialType(MaterialType materialType) {
+        this.materialType = materialType;
     }
 }

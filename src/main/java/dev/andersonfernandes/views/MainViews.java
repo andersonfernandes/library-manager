@@ -1,15 +1,16 @@
 package dev.andersonfernandes.views;
 
 import dev.andersonfernandes.models.Material;
+import dev.andersonfernandes.models.Rental;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class MainViews extends BaseViews {
-    private final MaterialsViews materialsViews;
-    private final RentalsViews rentalsViews;
-    private final List<Material> rentals;
+    private MaterialsViews materialsViews;
+    private RentalsViews rentalsViews;
+    private List<Rental> rentals;
 
     public MainViews(Scanner in) {
         super(in);
@@ -29,7 +30,7 @@ public class MainViews extends BaseViews {
             System.out.println("2 - Locações");
             System.out.println("3 - Sair");
             System.out.print(">> ");
-
+//          TODO: Add Usuários
             selection = in.nextInt();
 
             switch (selection) {

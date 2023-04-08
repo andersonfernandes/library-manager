@@ -1,5 +1,6 @@
-package dev.andersonfernandes.config;
+package dev.andersonfernandes.dao;
 
+import dev.andersonfernandes.config.Database;
 import dev.andersonfernandes.dao.utils.FormattedQuery;
 import dev.andersonfernandes.dao.utils.ResultSetMapper;
 
@@ -37,13 +38,16 @@ public class DatabaseQueries {
         return Optional.empty();
     }
 
-    public static List findBy(String tableName, Map<String, String> args, ResultSetMapper mapper) {
+    public static List findBy(String tableName, Map<String, String> args, Map<String, String> ilikeArgs, ResultSetMapper mapper) {
         Database database = Database.getInstance();
         String sql = String.format(
-                "SELECT * FROM %1$s WHERE %2$s",
+                "SELECT * FROM %1$s WHERE %2$s %3$s",
                 tableName,
                 args.keySet().stream()
                         .map(key -> String.format("%1$s='%2$s'", key, args.get(key)))
+                        .collect(Collectors.joining(" AND ")),
+                ilikeArgs.keySet().stream()
+                        .map(key -> String.format("%1$s ilike '%%%2$s%%'", key, ilikeArgs.get(key)))
                         .collect(Collectors.joining(" AND "))
         );
         try (

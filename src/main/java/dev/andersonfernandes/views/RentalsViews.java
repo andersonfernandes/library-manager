@@ -1,13 +1,14 @@
 package dev.andersonfernandes.views;
 
 import dev.andersonfernandes.models.Material;
+import dev.andersonfernandes.models.Rental;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class RentalsViews extends BaseViews {
-    private final List<Material> rentals;
-    public RentalsViews(Scanner in, List<Material> rentals) {
+    private List<Rental> rentals;
+    public RentalsViews(Scanner in, List<Rental> rentals) {
         super(in);
         this.rentals = rentals;
     }
@@ -36,10 +37,24 @@ public class RentalsViews extends BaseViews {
 
     @Override
     protected void newResource() {
+//        TODO: - Get user
+//              - Show summary of the Rental(user and added materials)
+//              - The show a menu with: Adicionar Material, Remover Material, Salvar Locação, Cancelar Locação
+//              - If Adicionar Material:
+//                  - Search material by title and wait user prompt to selected material
+//                  - Update rental materials
+//              - If Remover Material:
+//                  - Show selected materials and wait user prompt to selected material to be removed
+//                  - Update rental materials
+//              - If Salvar Locação:
+//                  - Add rental to the rentals list
+//              - If Cancelar locação:
+//                  - Go back to the previous menu and discard rental
     }
 
     @Override
     protected void getResource() {
-
+//        TODO: - Get user
+//              - Show summary of the Rental(user and added materials)
     }
 }

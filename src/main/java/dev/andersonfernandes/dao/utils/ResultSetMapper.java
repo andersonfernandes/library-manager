@@ -5,5 +5,5 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public interface ResultSetMapper {
-    Optional<Object> call(ResultSet resultSet) throws SQLException;
+    Optional call(ResultSet resultSet) throws SQLException;
 }

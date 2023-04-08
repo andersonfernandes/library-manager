@@ -1,7 +1,10 @@
 package dev.andersonfernandes;
 
+import dev.andersonfernandes.dao.MaterialDao;
+import dev.andersonfernandes.models.Material;
 import dev.andersonfernandes.views.MainViews;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class LibraryManager {

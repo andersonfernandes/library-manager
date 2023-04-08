@@ -44,61 +44,33 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: books; Type: TABLE; Schema: public; Owner: postgres
+-- Name: materials; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.books (
-    id bigint NOT NULL,
-    title character varying NOT NULL,
-    publisher character varying NOT NULL,
-    year integer NOT NULL,
-    quantity integer NOT NULL,
-    type character varying NOT NULL,
-    subject character varying,
-    genre character varying
+CREATE TABLE public.materials (
+                                  id bigint NOT NULL,
+                                  title character varying NOT NULL,
+                                  publisher character varying NOT NULL,
+                                  year integer NOT NULL,
+                                  quantity integer NOT NULL,
+                                  material_type character varying NOT NULL,
+                                  book_type character varying,
+                                  subject character varying,
+                                  genre character varying,
+                                  isbn character varying,
+                                  volume character varying,
+                                  edition character varying
 );
 
 
-ALTER TABLE public.books OWNER TO postgres;
+ALTER TABLE public.materials OWNER TO postgres;
 
 --
--- Name: books_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: materials_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-ALTER TABLE public.books ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.books_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    MAXVALUE 2147483647
-    CACHE 1
-);
-
-
---
--- Name: magazines; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.magazines (
-    id bigint NOT NULL,
-    title character varying NOT NULL,
-    publisher character varying NOT NULL,
-    year integer NOT NULL,
-    quantity integer NOT NULL,
-    isbn character varying NOT NULL,
-    volume character varying NOT NULL,
-    edition character varying NOT NULL
-);
-
-
-ALTER TABLE public.magazines OWNER TO postgres;
-
---
--- Name: magazines_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-ALTER TABLE public.magazines ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.magazines_id_seq
+ALTER TABLE public.materials ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.materials_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -112,13 +84,13 @@ ALTER TABLE public.magazines ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 --
 
 CREATE TABLE public.users (
-    id bigint NOT NULL,
-    name character varying NOT NULL,
-    address character varying NOT NULL,
-    email character varying NOT NULL,
-    registration character varying,
-    subjects character varying,
-    type character varying NOT NULL
+                              id bigint NOT NULL,
+                              name character varying NOT NULL,
+                              address character varying NOT NULL,
+                              email character varying NOT NULL,
+                              registration character varying,
+                              subjects character varying,
+                              type character varying NOT NULL
 );
 
 
@@ -139,19 +111,37 @@ ALTER TABLE public.users ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- Name: books books_id_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Data for Name: materials; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.books
-    ADD CONSTRAINT books_id_pkey PRIMARY KEY (id);
 
 
 --
--- Name: magazines magazines_id_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.magazines
-    ADD CONSTRAINT magazines_id_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: materials_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.materials_id_seq', 1, true);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.users_id_seq', 1, false);
+
+
+--
+-- Name: materials materials_id_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.materials
+    ADD CONSTRAINT materials_id_pkey PRIMARY KEY (id);
 
 
 --

@@ -1,12 +1,8 @@
 package dev.andersonfernandes.views;
 
-import dev.andersonfernandes.dao.BookDao;
-import dev.andersonfernandes.dao.MagazineDao;
+import dev.andersonfernandes.dao.MaterialDao;
 import dev.andersonfernandes.dao.utils.Dao;
-import dev.andersonfernandes.models.Book;
-import dev.andersonfernandes.models.BookType;
-import dev.andersonfernandes.models.Magazine;
-import dev.andersonfernandes.models.Material;
+import dev.andersonfernandes.models.*;
 
 import java.util.*;
 
@@ -83,12 +79,12 @@ public class MaterialsViews extends BaseViews {
                         bookTypeSelection = in.nextInt();
 
                         switch (bookTypeSelection) {
-                            case 1 -> ((Book) material).setType(BookType.TEXTBOOK);
-                            case 2 -> ((Book) material).setType(BookType.OTHER);
+                            case 1 -> ((Book) material).setBookType(BookType.TEXTBOOK);
+                            case 2 -> ((Book) material).setBookType(BookType.OTHER);
                         }
                     } while (bookTypeSelection > 2 || bookTypeSelection < 1);
 
-                    if (((Book) material).getType().equals(BookType.TEXTBOOK)) {
+                    if (((Book) material).getBookType().equals(BookType.TEXTBOOK)) {
                         System.out.print("Disciplina do livro: ");
                         ((Book) material).setSubject(in.next());
                     } else {
@@ -107,7 +103,7 @@ public class MaterialsViews extends BaseViews {
                 System.out.print("Quantidade: ");
                 material.setQuantity(in.hasNextInt() ? in.nextInt() : null);
 
-                Dao materialDao = (material instanceof Book) ? new BookDao() : new MagazineDao();
+                Dao<Material> materialDao = new MaterialDao();
 
                 if (material.isValid()) {
                     materialDao.create(material);
@@ -126,44 +122,34 @@ public class MaterialsViews extends BaseViews {
     public void getResource() {
         System.out.println("\nConsulta de Material");
 
-        Dao materialDao;
-        int materialTypeSelection;
-        do {
-            materialDao = null;
-            System.out.println("\nQual o tipo de material?");
-            System.out.println("1 - Livro");
-            System.out.println("2 - Revista");
-            System.out.println("3 - Cancelar");
-            System.out.print(">> ");
+        Dao<Material> materialDao = new MaterialDao();
 
-            materialTypeSelection = in.hasNextInt() ? in.nextInt() : null;
+        System.out.print("Qual o título do material? >> ");
 
-            switch (materialTypeSelection) {
-                case 1 -> materialDao = new BookDao();
-                case 2 -> materialDao = new MagazineDao();
-                case 3 -> {
-                    break;
-                }
-                default -> System.out.println("Opção Inválida");
-            }
+        List<Material> materialsFound = materialDao.findBy(
+                Map.of(),
+                Map.ofEntries(new AbstractMap.SimpleEntry<>("title", in.next()))
+        );
 
-            if (materialDao != null) {
-                System.out.print("Qual o título do material? >> ");
+        if (materialsFound.isEmpty()) {
+            System.out.println("Não foram encontrados materiais com o título buscado!");
+        } else {
+            System.out.println("Materiais encontrados com o título buscado:");
+            materialsFound.forEach(material ->
+                    System.out.printf("%1$s - %2$s: %3$s <%4$s, %5$s>%n",
+                            material.getId(),
+                            getMaterialTypeLabel(material.getMaterialType()),
+                            material.getTitle(),
+                            material.getPublisher(),
+                            material.getYear())
+            );
+        }
+    }
 
-                List<Material> materialsFound = materialDao.findBy(Map.ofEntries(
-                        new AbstractMap.SimpleEntry<>("title", in.next())
-                ));
-
-                System.out.println("Materiais encontrados com o título buscado:");
-                materialsFound.forEach(material ->
-                        System.out.println(String.format("#%1$s: %2$s <%3$s, %4$s>",
-                                material.getId(),
-                                material.getTitle(),
-                                material.getPublisher(),
-                                material.getYear()))
-                );
-                break;
-            }
-        } while (materialTypeSelection != 3);
+    private String getMaterialTypeLabel(MaterialType materialType) {
+        return switch (materialType) {
+            case BOOK -> "Livro";
+            case MAGAZINE -> "Revista";
+        };
     }
 }

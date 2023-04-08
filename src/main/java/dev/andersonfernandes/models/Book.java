@@ -5,16 +5,15 @@ import dev.andersonfernandes.models.utils.ValidationRule;
 import java.util.ArrayList;
 
 public class Book extends Material {
-    public static final String TABLE_NAME = "books";
-    private BookType type;
+    private BookType bookType;
     private String subject;
     private String genre;
 
     public Book() {}
 
-    public Book(Long id, String title, String publisher, Integer year, Integer quantity, BookType type, String subject, String genre) {
-        super(id, title, publisher, year, quantity);
-        this.type = type;
+    public Book(Long id, String title, String publisher, Integer year, Integer quantity, BookType bookType, String subject, String genre) {
+        super(id, title, publisher, year, quantity, MaterialType.BOOK);
+        this.bookType = bookType;
         this.subject = subject;
         this.genre = genre;
     }
@@ -23,16 +22,16 @@ public class Book extends Material {
     protected ArrayList<ValidationRule> validationRules() {
         ArrayList<ValidationRule> rules = baseValidationRules();
 
-        rules.add(() -> this.type == null ? "Tipo do livro deve estar presente" : null);
+        rules.add(() -> this.bookType == null ? "Tipo do livro deve estar presente" : null);
         rules.add(() -> {
-            boolean condition = this.type != null &&
-                    this.type.equals(BookType.TEXTBOOK) &&
+            boolean condition = this.bookType != null &&
+                    this.bookType.equals(BookType.TEXTBOOK) &&
                     (this.subject == null || this.subject.isEmpty());
             return condition ? "Disciplina do livro deve estar presente quando seu tipo for didático" : null;
         });
         rules.add(() -> {
-            boolean condition = this.type != null &&
-                    this.type.equals(BookType.OTHER) &&
+            boolean condition = this.bookType != null &&
+                    this.bookType.equals(BookType.OTHER) &&
                     (this.genre == null || this.genre.isEmpty());
             return condition ? "Gênero do livro deve estar presente quando seu tipo for paradidático" : null;
         });
@@ -40,12 +39,12 @@ public class Book extends Material {
         return rules;
     }
 
-    public BookType getType() {
-        return type;
+    public BookType getBookType() {
+        return bookType;
     }
 
-    public void setType(BookType type) {
-        this.type = type;
+    public void setBookType(BookType bookType) {
+        this.bookType = bookType;
     }
 
     public String getSubject() {

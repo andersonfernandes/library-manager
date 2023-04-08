@@ -1,9 +1,7 @@
 package dev.andersonfernandes.dao;
 
-import dev.andersonfernandes.config.DatabaseQueries;
 import dev.andersonfernandes.dao.utils.Dao;
 import dev.andersonfernandes.dao.utils.ResultSetMapper;
-import dev.andersonfernandes.models.Magazine;
 import dev.andersonfernandes.models.User;
 import dev.andersonfernandes.models.UserType;
 
@@ -37,7 +35,7 @@ public class UserDao implements Dao<User> {
     }
 
     @Override
-    public List<User> findBy(Map<String, String> args) {
+    public List<User> findBy(Map<String, String> args, Map<String, String> ilikeArgs) {
         return null;
     }
 }

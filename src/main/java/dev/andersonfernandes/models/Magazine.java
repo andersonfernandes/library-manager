@@ -5,7 +5,6 @@ import dev.andersonfernandes.models.utils.ValidationRule;
 import java.util.ArrayList;
 
 public class Magazine extends Material {
-    public static final String TABLE_NAME = "magazines";
     private String isbn;
     private String volume;
     private String edition;
@@ -13,7 +12,7 @@ public class Magazine extends Material {
     public Magazine() {}
 
     public Magazine(Long id, String title, String publisher, Integer year, Integer quantity, String isbn, String volume, String edition) {
-        super(id, title, publisher, year, quantity);
+        super(id, title, publisher, year, quantity, MaterialType.MAGAZINE);
         this.isbn = isbn;
         this.volume = volume;
         this.edition = edition;
