@@ -9,10 +9,8 @@ import dev.andersonfernandes.models.RentalStatus;
 import dev.andersonfernandes.models.User;
 
 import java.time.LocalDate;
-import java.util.AbstractMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class RentalsViews extends BaseViews {
@@ -148,7 +146,48 @@ public class RentalsViews extends BaseViews {
 
     @Override
     protected void getResource() {
-//        TODO: - Get user
-//              - Show summary of the Rental(user and added materials)
+        UserDao userDao = new UserDao();
+        RentalDao rentalDao = new RentalDao();
+
+        System.out.print("Qual o nome do usuário >> ");
+        List<User> usersFound = userDao.findBy(
+                Map.of(),
+                Map.ofEntries(new AbstractMap.SimpleEntry<>("name", in.next()))
+        );
+
+        if (usersFound.isEmpty()) {
+            System.out.println("Não foram encontrados usuários com o nome buscado!");
+        } else {
+            System.out.println("Usuários encontrados com o nome buscado:");
+            IntStream.range(0, usersFound.size()).forEach(index -> {
+                User user = usersFound.get(index);
+                System.out.printf("%1$s: %2$s <%3$s>%n",
+                        index,
+                        user.getName(),
+                        user.getEmail()
+                );
+            });
+            System.out.print("Qual o usuário deseja consultar >> ");
+            int selectedUser = in.nextInt();
+
+            if (selectedUser < 0 || selectedUser >= usersFound.size()) {
+                System.out.println("Usuário inválido");
+                return;
+            }
+
+            List<Rental> rentals = rentalDao.findBy(
+                    Map.ofEntries(new AbstractMap.SimpleEntry<>("user_id", usersFound.get(selectedUser).getId().toString())),
+                    Map.of()
+                    );
+
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            rentals.forEach(rental -> {
+                System.out.printf("%nLocação %1$s%n", rental.getId());
+                System.out.printf("Usuário: %1$s%n", rental.getUser().getName());
+                System.out.printf("Data de retorno: %1$s%n", dateFormatter.format(rental.getReturnAt()));
+                System.out.println("Materiais:");
+                rental.getMaterials().forEach(material -> System.out.printf("- %1$s%n", material.toString()));
+            });
+        }
     }
 }
