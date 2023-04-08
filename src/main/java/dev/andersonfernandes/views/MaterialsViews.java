@@ -136,8 +136,7 @@ public class MaterialsViews extends BaseViews {
         } else {
             System.out.println("Materiais encontrados com o título buscado:");
             materialsFound.forEach(material ->
-                    System.out.printf("%1$s - %2$s: %3$s <%4$s, %5$s>%n",
-                            material.getId(),
+                    System.out.printf("%1$s: %2$s <%3$s, %4$s>%n",
                             getMaterialTypeLabel(material.getMaterialType()),
                             material.getTitle(),
                             material.getPublisher(),

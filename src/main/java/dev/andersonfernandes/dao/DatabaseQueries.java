@@ -31,8 +31,6 @@ public class DatabaseQueries {
                 return mapper.call(resultSet);
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            database.closeConnection();
         }
 
         return Optional.empty();
@@ -61,8 +59,6 @@ public class DatabaseQueries {
             return list;
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            database.closeConnection();
         }
 
         return List.of();

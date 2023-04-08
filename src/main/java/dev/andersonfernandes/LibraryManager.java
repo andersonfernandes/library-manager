@@ -1,9 +1,12 @@
 package dev.andersonfernandes;
 
+import dev.andersonfernandes.config.Database;
 import dev.andersonfernandes.dao.MaterialDao;
 import dev.andersonfernandes.models.Material;
 import dev.andersonfernandes.views.MainViews;
 
+import javax.xml.crypto.Data;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -16,5 +19,11 @@ public class LibraryManager {
         MainViews mainView = new MainViews(in);
 
         mainView.menu();
+
+        try {
+            Database.getInstance().getConnection().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
