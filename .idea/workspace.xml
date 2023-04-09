@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="783a1a4d-6fa1-4e31-b44b-22ba91f7a5ad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library-manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/library-manager.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/LibraryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Magazine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/LibraryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/LibraryManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/models/Book.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +44,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.All in library-manager">
     <configuration name="LibraryManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.andersonfernandes.LibraryManager" />
       <module name="library-manager" />
@@ -63,8 +58,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in library-manager" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="library-manager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="library-manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.andersonfernandes.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dev.andersonfernandes.models" />
+      <option name="MAIN_CLASS_NAME" value="dev.andersonfernandes.models.BookTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Write tests for class Book" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="library-manager" />
+      <settings run-config-name="Write tests for class Book" include-system-env-vars="true">
+        <jvm-args />
+        <selection-scope>class</selection-scope>
+        <selected-element key="dev.andersonfernandes.models.Book" />
+      </settings>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in library-manager" />
+        <item itemvalue="JUnit.BookTest" />
+        <item itemvalue="Diffblue Cover.Write tests for class Book" />
         <item itemvalue="Application.LibraryManager" />
       </list>
     </recent_temporary>
@@ -87,7 +117,7 @@
       <workItem from="1680895074220" duration="973000" />
       <workItem from="1680898246823" duration="1327000" />
       <workItem from="1680966072575" duration="44000" />
-      <workItem from="1680966129609" duration="30667000" />
+      <workItem from="1680966129609" duration="32358000" />
     </task>
     <servers />
   </component>
