@@ -9,7 +9,9 @@ public class Book extends Material {
     private String subject;
     private String genre;
 
-    public Book() {}
+    public Book() {
+        this.materialType = MaterialType.BOOK;
+    }
 
     public Book(Long id, String title, String publisher, Integer year, Integer quantity, BookType bookType, String subject, String genre) {
         super(id, title, publisher, year, quantity, MaterialType.BOOK);

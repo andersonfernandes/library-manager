@@ -8,10 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library-manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/library-manager.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/RentalDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/dao/RentalDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/RentalsViews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/views/RentalsViews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/RentalDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/dao/RentalDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/RentalsViews.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/views/RentalsViews.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/LibraryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/andersonfernandes/models/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/LibraryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/andersonfernandes/LibraryManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +87,7 @@
       <workItem from="1680895074220" duration="973000" />
       <workItem from="1680898246823" duration="1327000" />
       <workItem from="1680966072575" duration="44000" />
-      <workItem from="1680966129609" duration="24354000" />
+      <workItem from="1680966129609" duration="30667000" />
     </task>
     <servers />
   </component>

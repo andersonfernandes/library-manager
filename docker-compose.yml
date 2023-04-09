@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+        context: ./
+    depends_on:
+      - db
+    environment:
+      - LIBRARY_MANAGER_DATABASE_URL=jdbc:postgresql://db:5432/library_manager?user=postgres
+    tty: true
+    stdin_open: true
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - postgres_local:/var/lib/postgresql/data
+      - ./database_dump.sql:/docker-entrypoint-initdb.d/dummy_dump.sql
+
+
+volumes:
+    postgres_local:

@@ -9,7 +9,9 @@ public class Magazine extends Material {
     private String volume;
     private String edition;
 
-    public Magazine() {}
+    public Magazine() {
+        this.materialType = MaterialType.MAGAZINE;
+    }
 
     public Magazine(Long id, String title, String publisher, Integer year, Integer quantity, String isbn, String volume, String edition) {
         super(id, title, publisher, year, quantity, MaterialType.MAGAZINE);
